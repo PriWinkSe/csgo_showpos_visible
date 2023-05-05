@@ -95,7 +95,6 @@ def flush_location():
           lb2.__setitem__("text", "Z:  " + str(('%.0f' % pm.read_float(Z_address))))
           time.sleep(0.01)
 
-#想要精确睡眠就得学好python的多线程
 def flushAngle():
      global tangAddress
      global angleLabel
