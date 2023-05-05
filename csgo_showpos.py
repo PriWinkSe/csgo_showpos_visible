@@ -12,78 +12,16 @@ import socket
 import requests
 import yaml
 
-user_name = os.getlogin()
-s = wmi.WMI()
-
 def exact_sleep(delay_ns):
     #单位 纳秒
     target = int(time.perf_counter_ns()*1000) + delay_ns
     while int(time.perf_counter_ns()) < target:
         pass
-#用法和普通的sleep一样
-def zzxm_sleep(delay):
+
+def sp_sleep(delay):
     target = time.perf_counter()+delay
     while time.perf_counter() <= target:
         pass
-
-def getSerialNum():
-    cp = s.Win32_Processor()
-    cpu = []
-    cp = s.Win32_Processor()
-    for u in cp:
-        cpu.append(
-            {
-                "Name": u.Name,
-                "Serial Number": u.ProcessorId,
-                "CoreNum": u.NumberOfCores
-            }
-        )
-
-    disk = []
-    for pd in s.Win32_DiskDrive():
-        disk.append(
-            {
-                "Serial": s.Win32_PhysicalMedia()[0].SerialNumber.lstrip().rstrip(),  # 获取硬盘序列号，调用另外一个win32 API
-                "ID": pd.deviceid,
-                "Caption": pd.Caption,
-                "size": str(int(float(pd.Size) / 1024 / 1024 / 1024)) + "G"
-            }
-        )
-
-    network = []
-    for nw in s.Win32_NetworkAdapterConfiguration():  # IPEnabled=0
-         if nw.MACAddress != None:
-            network.append(
-                   {
-                     "MAC": nw.MACAddress,  # 无线局域网适配器 WLAN 物理地址
-                      "ip": nw.IPAddress
-                   }
-              )
-
-
-    mainboard = []
-    for board_id in s.Win32_BaseBoard():
-        mainboard.append(board_id.SerialNumber.strip().strip('.'))
-    r = u.ProcessorId + s.Win32_PhysicalMedia()[0].SerialNumber.replace("_","").replace(".","") + nw.MACAddress.replace(":","") + board_id.SerialNumber.replace(":","").replace("-","")
-    return r
-
-def getpack():
-       return user_name + ";" + getSerialNum()
-
-
-def st():
-      try:
-           sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-           sock.connect(('114.132.189.96', 7799))
-           sock.send(getpack().encode('gbk'))
-      except Exception as E:
-           print("connect failed!")
-
-#st()    #验证
-
-
-
-#dwEntityPointer = (0x4DCEB7C)
 
 pm = pymem.Pymem("csgo.exe")
 
@@ -101,7 +39,7 @@ root.attributes("-topmost", 1)
 '''透明度'''
 root.attributes("-alpha", 0.9)
 root.overrideredirect(False)
-root.title('Zzxm_Final')
+root.title('✔loc_visable')
 root.geometry('145x105')
 
 lb1 = tk.Label(root, text='X: none', font=('微软雅黑', 10), fg='Indigo', bg='white')
