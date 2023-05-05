@@ -1,6 +1,6 @@
 ![image](http://222.187.238.84:4232/picture/2.png)
 
-[** Download **](http://222.187.238.84:4232/files/csgo_showpos.exe)
+[** Download **](http://222.187.238.84:4232/files/)
 
 可以模拟cl_showpos命令
 
