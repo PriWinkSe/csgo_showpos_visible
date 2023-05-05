@@ -1,5 +1,9 @@
 ![image](http://222.187.238.84:4232/picture/2.png)
 
-可以模拟cl_showpos命令显示x z y坐标和移动速度
+[** Download **](http://222.187.238.84:4232/files/csgo_showpos.exe)
 
-有简易的云端文件,失效了等更新即可
+可以模拟cl_showpos命令
+
+显示x,y,z坐标和vel移动速度
+
+有云端文件,失效可以等更新
