@@ -39,7 +39,7 @@ root.attributes("-topmost", 1)
 '''透明度'''
 root.attributes("-alpha", 0.9)
 root.overrideredirect(False)
-root.title('✔loc_visable')
+root.title('✔loc_visible')
 root.geometry('145x105')
 
 lb1 = tk.Label(root, text='X: none', font=('微软雅黑', 10), fg='Indigo', bg='white')
@@ -102,17 +102,17 @@ def flushAngle():
      while True:
           angle = pm.read_float(tangAddress)
           bz = ""
-          if angle <= 100 and angle >= 80:
+          if 100 >= angle >= 80:
             bz = "↑"
-          elif angle >= -110 and angle <= -80:
+          elif -110 <= angle <= -80:
             bz = "↓"
-          elif angle >= -10 and angle <= 10:
+          elif -10 <= angle <= 10:
             bz = "←."
           elif (angle <= -170 and angle < 0) or (angle >= 170):
             bz = ".→"
-          elif angle <= 90-35 and angle >= 90-55:  # 90 - 180    45  35~55
+          elif 55 >= angle >= 35:  # 90 - 180    45  35~55
             bz = "↖."
-          elif angle <= 90+55 and angle >= 90+35:
+          elif 145 >= angle >= 125:
             bz = ".↗"
           angleLabel.__setitem__("text", "A:  " + str('%.0f' % angle) + "  " + bz)
           time.sleep(0.01)
