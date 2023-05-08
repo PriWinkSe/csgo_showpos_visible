@@ -12,6 +12,7 @@ import socket
 import requests
 import yaml
 
+
 def exact_sleep(delay_ns):
     #单位 纳秒
     target = int(time.perf_counter_ns()*1000) + delay_ns
@@ -41,6 +42,7 @@ root.attributes("-alpha", 0.9)
 root.overrideredirect(False)
 root.title('✔loc_visible')
 root.geometry('145x105')
+
 
 lb1 = tk.Label(root, text='X: none', font=('微软雅黑', 10), fg='Indigo', bg='white')
 lb1.place(x=8, y=0)
@@ -77,11 +79,10 @@ LOCAL_PLAYER = int(yamlinfo["signatures"]["dwLocalPlayer"])
 HEALTH = int(yamlinfo["netvars"]["m_iHealth"])
 FLAGS = int(yamlinfo["netvars"]["m_fFlags"])
 m_vecVelocity = int(yamlinfo["netvars"]["m_vecVelocity"])
-
 X_address = enginedll + int(locinfo["location"]["x"])
 Y_address = enginedll + int(locinfo["location"]["y"])
 Z_address = enginedll + int(locinfo["location"]["z"])
-tangAddress = enginedll + int(locinfo["location"]["tang"]);
+tangAddress = enginedll + int(locinfo["location"]["tang"])
 
 
 def flush_location():
