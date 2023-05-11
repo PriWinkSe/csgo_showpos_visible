@@ -1,4 +1,3 @@
-#自定义异常 出错时候打印行号
 import inspect
 
 class PosRunTimeError(Exception):
