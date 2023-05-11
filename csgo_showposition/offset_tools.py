@@ -1,6 +1,5 @@
 import math
 import struct
-
 import pymem
 import requests
 import yaml
